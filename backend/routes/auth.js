@@ -3,23 +3,36 @@
     const User = require('../models/User');
     const {body, validationResult} = require('express-validator')
 
-    //Create a USer using: POST "/api/auth". Doesn't require auth
-    router.post('/',[
+    //Create a USer using: POST "/api/auth/createuser". no login require
+    router.post('/createuser',[
         body('name', 'Enter a valid name').isLength({min:3}),
         body('email', 'Enter a valid email').isEmail(),
         body('password', 'Enter a valid passowrd').isLength({min:5})
-    ], (req, res)=>{
+    ],async (req, res)=>{
+        //If there is error return bad request and error message
         const result = validationResult(req);
         if (!result.isEmpty()) {
           return res.status(400).json({result: result.array()});
         }
-        User.create({
+
+        try {
+        //check wheather the user email exits already
+        let user = await User.findOne({email: req.body.email});
+
+        if(user){
+            return res.status(400).json({result : "user with this email is already exist"})
+        }
+        user = await User.create({
             name: req.body.name,
             email: req.body.email,
             password: req.body.password
-        }).then(user => res.json(user))
-        .catch(err => {console.log(err)
-        res.json({result:'please enter unique value', message: err.message})});
-    })
+        })
+        res.json(user)
+
+        } catch (error) {
+            console.log(error);
+            res.status(500).send("Some error occurs")
+        }
+    });
 
     module.exports = router;
