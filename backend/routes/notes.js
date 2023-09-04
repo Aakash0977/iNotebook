@@ -42,7 +42,7 @@ router.post('/addnote', fetchuser, [
 
 });
 
-// Route: 2 - Add notes of logged in user: PUT  "api/notes/updatenote/:id". No login require
+// Route: 3 - Add notes of logged in user: PUT  "api/notes/updatenote/:id". No login require
 router.put('/updatenote/:id', fetchuser, async (req, res) => {
     const {title, description, tag} = req.body;
     //create a new note object 
@@ -60,6 +60,25 @@ router.put('/updatenote/:id', fetchuser, async (req, res) => {
 
     note = await Note.findByIdAndUpdate (req.params.id, {$set: newNote}, {new:true})
     res.json({note});
+
+});
+
+
+// Route: 4 - delete notes of logged in user: DELETE  "api/notes/deletenote/:id". No login require
+router.delete('/deletenote/:id', fetchuser, async (req, res) => {
+    const {title, description, tag} = req.body;
+
+    //Find the note to be delete and delete it 
+    let note = await Note.findById(req.params.id);
+    if(!note){ return res.status(404).send("Not found") }
+
+    //Allow deletion only if the owner owns this note
+    if(note.user.toString() !== req.user.id){
+        return res.status(401).send("Not Allowed")
+    }
+
+    note = await Note.findByIdAndDelete (req.params.id)
+    res.json({"success": "Note has been sucessfully deleted", note : note});
 
 });
 
