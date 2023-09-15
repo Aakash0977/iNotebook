@@ -20,7 +20,79 @@ const NoteState = (props)=>{
           "tag": "you2",
           "date": "2023-09-14T14:17:41.445Z",
           "__v": 0
-        }
+        },
+        {
+          "_id": "64f7495f146160a43350883a",
+          "user": "64f2ddc32521832a6953beba",
+          "title": "note",
+          "description": "WElcome to my note",
+          "tag": "you",
+          "date": "2023-09-05T15:29:35.404Z",
+          "__v": 0
+        },
+        {
+          "_id": "64f7495f146160a43350883a",
+          "user": "64f2ddc32521832a6953beba",
+          "title": "note",
+          "description": "WElcome to my note",
+          "tag": "you",
+          "date": "2023-09-05T15:29:35.404Z",
+          "__v": 0
+        },
+        {
+          "_id": "64f7495f146160a43350883a",
+          "user": "64f2ddc32521832a6953beba",
+          "title": "note",
+          "description": "WElcome to my note",
+          "tag": "you",
+          "date": "2023-09-05T15:29:35.404Z",
+          "__v": 0
+        },
+        {
+          "_id": "64f7495f146160a43350883a",
+          "user": "64f2ddc32521832a6953beba",
+          "title": "note",
+          "description": "WElcome to my note",
+          "tag": "you",
+          "date": "2023-09-05T15:29:35.404Z",
+          "__v": 0
+        },
+        {
+          "_id": "64f7495f146160a43350883a",
+          "user": "64f2ddc32521832a6953beba",
+          "title": "note",
+          "description": "WElcome to my note",
+          "tag": "you",
+          "date": "2023-09-05T15:29:35.404Z",
+          "__v": 0
+        },
+        {
+          "_id": "64f7495f146160a43350883a",
+          "user": "64f2ddc32521832a6953beba",
+          "title": "note",
+          "description": "WElcome to my note",
+          "tag": "you",
+          "date": "2023-09-05T15:29:35.404Z",
+          "__v": 0
+        },
+        {
+          "_id": "64f7495f146160a43350883a",
+          "user": "64f2ddc32521832a6953beba",
+          "title": "note",
+          "description": "WElcome to my note",
+          "tag": "you",
+          "date": "2023-09-05T15:29:35.404Z",
+          "__v": 0
+        },
+        {
+          "_id": "64f7495f146160a43350883a",
+          "user": "64f2ddc32521832a6953beba",
+          "title": "note",
+          "description": "WElcome to my note",
+          "tag": "you",
+          "date": "2023-09-05T15:29:35.404Z",
+          "__v": 0
+        },
       ]
       const [notes, setNotes] = useState(noteInitial)
     return(
